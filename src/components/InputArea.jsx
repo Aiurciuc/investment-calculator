@@ -13,7 +13,7 @@ const InputArea = ({ investmentParams, onChange }) => {
   const durationMessage = investmentParams.duration <0 ? "Duration must be at least 0" : null;
 
   return (
-    <div id="user-input">
+    <section id="user-input">
       <div className="input-group">
         <Input
           id={inputKeys[0]}
@@ -47,7 +47,7 @@ const InputArea = ({ investmentParams, onChange }) => {
         />
       </div>
         
-    </div>
+    </section>
   );
 };
 

@@ -7,13 +7,13 @@ const Table = ({ investmentParams }) => {
   return (
     <table id="result">
       <thead>
-        <th>
-          <td>Year</td>
-          <td>Investment Value</td>
-          <td>Interest (Year)</td>
-          <td>Total Interest</td>
-          <td>Invested Capital</td>
-        </th>
+        <tr>
+          <th>Year</th>
+          <th>Investment Value</th>
+          <th>Interest (Year)</th>
+          <th>Total Interest</th>
+          <th>Invested Capital</th>
+        </tr>
       </thead>
       <tbody>
         {investmentResults.map((result, index) => {
@@ -24,8 +24,9 @@ const Table = ({ investmentParams }) => {
               <td>{formatter.format(result.interest)}</td>
               <td>
                 {formatter.format(
-                  result.interest +
-                    (investmentResults[index - 1]?.interest ?? 0)
+                  result.valueEndOfYear -
+                    result.annualInvestment * result.year -
+                    investmentParams.initialInvestment
                 )}
               </td>
               <td>
