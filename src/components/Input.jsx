@@ -1,10 +1,10 @@
 
-const Input = ({ label, value, onChange }) => {
+const Input = ({ label, ...props }) => {
 
   return (
     <div>
       <label>{label}</label>
-      <input type="number" value={value} onChange={onChange} />
+      <input {...props} type="number" />
     </div>
   );
 };
