@@ -1,6 +1,8 @@
 import Input from "./Input";
 
 const InputArea = ({ investmentParams, onChange }) => {
+  const inputKeys = Object.keys(investmentParams);
+
   function handleChange(event) {
     onChange({
       ...investmentParams,
@@ -8,39 +10,43 @@ const InputArea = ({ investmentParams, onChange }) => {
     });
   }
 
+  const durationMessage = investmentParams.duration <0 ? "Duration must be at least 0" : null;
+
   return (
     <div id="user-input">
       <div className="input-group">
         <Input
-          id="initial"
+          id={inputKeys[0]}
           onChange={handleChange}
-          value={investmentParams.initial}
+          value={investmentParams[inputKeys[0]]}
           label="Initial Investment"
         />
 
         <Input
-          id="annual"
+          id={inputKeys[1]}
           onChange={handleChange}
-          value={investmentParams.annual}
+          value={investmentParams[inputKeys[1]]}
           label="Annual Investment"
         />
       </div>
 
       <div className="input-group">
         <Input
-          id="expected"
+          id={inputKeys[2]}
           onChange={handleChange}
-          value={investmentParams.expected}
+          value={investmentParams[inputKeys[2]]}
           label="Expected Return"
         />
 
         <Input
-          id="duration"
-          value={investmentParams.duration}
+          id={inputKeys[3]}
+          value={investmentParams[inputKeys[3]]}
           onChange={handleChange}
           label="Duration"
+          message={durationMessage}
         />
       </div>
+        
     </div>
   );
 };

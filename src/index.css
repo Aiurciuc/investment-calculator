@@ -87,3 +87,8 @@ body {
 .center {
   text-align: center;
 }
+
+.error-message {
+  font-size: 0.5rem;
+  color: rgb(246, 143, 143)
+}
